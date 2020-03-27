@@ -188,6 +188,7 @@ class MapServer
       meta_data_message_ = map_resp_.map.info;
 
       service = n.advertiseService("static_map", &MapServer::mapCallback, this);
+      //ROS_INFO("tianjingtianjingtianjingtianjing");
       //pub = n.advertise<nav_msgs::MapMetaData>("map_metadata", 1,
 
       // Latched publisher for metadata

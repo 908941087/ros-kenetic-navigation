@@ -155,18 +155,50 @@ namespace move_base {
        * @brief  Reset the state of the move_base action and send a zero velocity command to the base
        */
       void resetState();
-
+      /**
+       * @brief transform the type of goal
+       * @param goal the destination
+       */
       void goalCB(const geometry_msgs::PoseStamped::ConstPtr& goal);
+      /**
+       * @brief the thread of global planner
+       */
 
       void planThread();
+      /**
+       * @brief execute local planner and navigation when receive the new goal
+       * @param move_base_goal
+       */
 
       void executeCb(const move_base_msgs::MoveBaseGoalConstPtr& move_base_goal);
+      /**
+       * @brief check if the parameter of q is Quaternion
+       * @param q
+       * @return
+       */
 
       bool isQuaternionValid(const geometry_msgs::Quaternion& q);
+      /**
+       * @brief get the pose of the robot
+       * @param global_pose
+       * @param costmap
+       * @return
+       */
 
       bool getRobotPose(geometry_msgs::PoseStamped& global_pose, costmap_2d::Costmap2DROS* costmap);
+      /**
+       * @brief calculate the distance between p1 and p2
+       * @param p1
+       * @param p2
+       * @return
+       */
 
       double distance(const geometry_msgs::PoseStamped& p1, const geometry_msgs::PoseStamped& p2);
+      /**
+       * transform the goal_pose_msg to the type of geometry_msgs::PoseStamped
+       * @param goal_pose_msg
+       * @return
+       */
 
       geometry_msgs::PoseStamped goalToGlobalFrame(const geometry_msgs::PoseStamped& goal_pose_msg);
 
