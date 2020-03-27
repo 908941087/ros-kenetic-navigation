@@ -1,0 +1,16 @@
+2020.2.26  
+ti_ws下的radar_limit_filters.launch 中<node pkg="nodelet" type="nodelet" name="x_filt" args="load pcl/PassThrough pcl_manager" output="screen" launch-prefix="xterm -e gdb -ex run --args ">加入gdb调试语句。
+ti_ws中navigation包中加入map_server包并编译。
+
+2020.2.28 
+删除上述调试语句
+查阅ti论坛关于ros导航的信息，目前无符合需求的信息，但是发现目前我们所运行的不包括acml和gmapping
+查看acml的作用，可能可以进行从话题读取地图信息，符合我们需求
+
+2020.3.1 
+删除一个过滤节点，即可实现mapping和navigation的同时运行
+
+2020.3.12
+将radar_navigation_copy中的除了过滤的节点的其他启动节点转移到radar_mapping文件
+
+git te
